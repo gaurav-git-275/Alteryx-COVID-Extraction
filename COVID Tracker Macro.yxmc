@@ -1,0 +1,465 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="18" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="FileName">D:\Alteryx Training\COVID Data New\03-22-2020.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>03-22-2020.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FIPS" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Admin2" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Province_State" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Country_Region" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Last_Update" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Lat" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Long_" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Confirmed" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Deaths" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Recovered" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Active" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Combined_Key" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="102" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Province_State" selected="True" />
+            <SelectField field="Country_Region" selected="True" />
+            <SelectField field="Lat" selected="True" type="Double" size="8" />
+            <SelectField field="Long_" selected="True" type="Double" size="8" />
+            <SelectField field="Confirmed" selected="True" type="Int32" size="4" />
+            <SelectField field="Deaths" selected="True" type="Int32" size="4" />
+            <SelectField field="Recovered" selected="True" type="Int32" size="4" />
+            <SelectField field="FileName" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Province_State" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Country_Region" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Lat" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Long_" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Confirmed" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Deaths" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Recovered" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="294" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>FileName</InputFieldName>
+          <Language>English</Language>
+          <Format>MM-dd-yyyy</Format>
+          <OutputFieldName>Date</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert FileName From:
+MM-dd-yyyy</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Province_State" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Country_Region" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Lat" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Long_" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Confirmed" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Deaths" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Recovered" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+            <Field name="Date" source="DateTime: To MM-dd-yyyy" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="390" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Province_State" selected="True" />
+            <SelectField field="Country_Region" selected="True" />
+            <SelectField field="Lat" selected="True" />
+            <SelectField field="Long_" selected="True" />
+            <SelectField field="Confirmed" selected="True" />
+            <SelectField field="Deaths" selected="True" />
+            <SelectField field="Recovered" selected="True" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Province_State" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Country_Region" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Lat" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Long_" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Confirmed" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Deaths" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Recovered" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Date" source="DateTime: To MM-dd-yyyy" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings>
+        <Position x="486" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"Confirmed","Deaths","Recovered"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output26">
+          <RecordInfo>
+            <Field name="Province_State" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Country_Region" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Lat" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Long_" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv (BatchMacro) (BatchMacro) (BatchMacro)" type="Double" />
+            <Field name="Confirmed" source="Formula: IIF(IsNull([_CurrentField_]),0,[_CurrentField_]) (BatchMacro)" type="Int32" />
+            <Field name="Deaths" source="Formula: IIF(IsNull([_CurrentField_]),0,[_CurrentField_]) (BatchMacro)" type="Int32" />
+            <Field name="Recovered" source="Formula: IIF(IsNull([_CurrentField_]),0,[_CurrentField_]) (BatchMacro)" type="Int32" />
+            <Field name="Date" source="DateTime: To MM-dd-yyyy (BatchMacro) (BatchMacro) (BatchMacro)" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="210" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>Formula</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="Province_State" />
+            <Field name="Country_Region" />
+            <Field name="Lat" />
+            <Field name="Long_" />
+            <Field name="Confirmed" />
+            <Field name="Deaths" />
+            <Field name="Recovered" />
+            <Field name="FileName" />
+            <Field name="*Unknown" />
+          </Fields>
+          <Expression>replace([_CurrentField_],'/','_')</Expression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Province_State" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Country_Region" size="254" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="V_String" />
+            <Field name="Lat" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Long_" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Double" />
+            <Field name="Confirmed" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Deaths" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="Recovered" source="File: D:\Alteryx Training\COVID Data New\03-22-2020.csv" type="Int32" />
+            <Field name="FileName" size="254" source="File: FileName" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="18" y="90" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="18" y="144" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="642" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>COVID Tracker Macro</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="17" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output26" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="23" Connection="Question" />
+      <Destination ToolID="24" Connection="Question" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="24" Connection="Action" />
+      <Destination ToolID="12" Connection="Action" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="False" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (23)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (25)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>COVID Tracker Macro</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="719f472b-80c0-4d0f-9b1a-c6a511281140" />
+      <Telemetry>
+        <PreviousWorkflowId value="82b8fc9a-4a3f-4e36-9130-751dd5aae2be" />
+        <OriginWorkflowId value="82b8fc9a-4a3f-4e36-9130-751dd5aae2be" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="24" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>04-20-2020.csv</ReplaceText>
+              <Destination>12/File</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (18)</Name>
+          <ToolId value="18" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Control Parameter for COVID TRACKER WORKLFOW</Description>
+              <Name>Control Parameter (23)</Name>
+              <ToolId value="23" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (25)</Description>
+              <Name>Macro Output (25)</Name>
+              <ToolId value="25" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AutoByName</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (23)</Name>
+            <Description>Control Parameter for COVID TRACKER WORKLFOW</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="16" Selected="True" />
+        <Tool ToolId="25" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
